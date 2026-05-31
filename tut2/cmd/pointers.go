@@ -49,7 +49,9 @@ func modifySlice(slice *[]int) {
 // Note : & in front of a variable is used to get the address of the variable, and & in front of a type in a function parameter is used to declare a reference variable.
 
 // In Go we only have pass by value, but the value can be a reference to an object, so when we modify the object in the caller function, it modifies the original object just like in Java.
-// Things which are passed by copy which are ref to objects are s
+// Things which are passed by copy which are ref to objects are
 // slices, maps, channels, interfaces, functions and pointers
 // So when we pass them to a function, we are passing a copy of the reference to the object, but since the reference points to the same underlying object, when we modify the object in the caller function, it modifies the original object.
+
+// Note: in cpp when we pass map by value it copies the pointer and also creates new container in the heap, but in go passing slice or map by ref we only copy the head which is a reference to the underlying array or map, and we dont create a new container in the heap, so changes affect the original object.
 // Note: Although we have & in Go , its only used to get the address of a variable, and we dont have reference variables like in cpp, so we cannot achieve true pass by reference in Go. We can only achieve pass by value with reference types.
